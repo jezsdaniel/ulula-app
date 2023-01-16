@@ -13,10 +13,12 @@ final appTheme = ThemeData(
   fontFamily: 'OpenSans',
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      foregroundColor: AppColors.color1,
+      foregroundColor: AppColors.color2,
       backgroundColor: AppColors.color1,
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-      shape: const CircleBorder(),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(92),
+      ),
       textStyle: AppTextStyles.semiBold16,
     ),
   ),
@@ -24,7 +26,9 @@ final appTheme = ThemeData(
     style: TextButton.styleFrom(
       foregroundColor: AppColors.color1,
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-      shape: const CircleBorder(),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(92),
+      ),
       textStyle: AppTextStyles.semiBold16,
     ),
   ),
@@ -32,7 +36,9 @@ final appTheme = ThemeData(
     style: OutlinedButton.styleFrom(
       foregroundColor: AppColors.color1,
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-      shape: const CircleBorder(),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(92),
+      ),
       textStyle: AppTextStyles.semiBold16,
     ),
   ),

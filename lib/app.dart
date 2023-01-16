@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+
+import 'package:ulula/core/theme/theme.dart';
+import 'package:ulula/features/account_management/presentation/pages/welcome.dart';
 import 'package:ulula/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -7,19 +10,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
-        colorScheme: ColorScheme.fromSwatch(
-          accentColor: const Color(0xFF13B9FF),
-        ),
-      ),
+      theme: appTheme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const Scaffold(
-        body: Center(
-          child: Text('HELLO'),
-        ),
-      ),
+      home: const WelcomePage(),
     );
   }
 }

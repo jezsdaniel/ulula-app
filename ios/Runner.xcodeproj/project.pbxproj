@@ -185,7 +185,7 @@
 		};
 		9740EEB61CF901F6004384FC /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -289,8 +289,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 86VY3C4W2N;
 				ENABLE_BITCODE = NO;
-				FLAVOR_APP_NAME = "Ulula";
+				FLAVOR_APP_NAME = Ulula;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -420,8 +421,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 86VY3C4W2N;
 				ENABLE_BITCODE = NO;
-				FLAVOR_APP_NAME = "Ulula";
+				FLAVOR_APP_NAME = Ulula;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -443,8 +445,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 86VY3C4W2N;
 				ENABLE_BITCODE = NO;
-				FLAVOR_APP_NAME = "Ulula";
+				FLAVOR_APP_NAME = Ulula;
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -521,6 +524,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-dev";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 86VY3C4W2N;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[DEV] Ulula";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -597,6 +601,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-dev";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 86VY3C4W2N;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[DEV] Ulula";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -670,6 +675,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-dev";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 86VY3C4W2N;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[DEV] Ulula";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -748,6 +754,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-stg";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 86VY3C4W2N;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[STG] Ulula";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -824,6 +831,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-stg";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 86VY3C4W2N;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[STG] Ulula";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -897,6 +905,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-stg";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+				DEVELOPMENT_TEAM = 86VY3C4W2N;
 				ENABLE_BITCODE = NO;
 				FLAVOR_APP_NAME = "[STG] Ulula";
 				INFOPLIST_FILE = Runner/Info.plist;
@@ -929,7 +938,7 @@
 				DC2A913C25CA164B0048C013 /* Profile-staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-production";
+			defaultConfigurationName = "Debug-development";
 		};
 		97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */ = {
 			isa = XCConfigurationList;
@@ -945,7 +954,7 @@
 				DC2A913D25CA164B0048C013 /* Profile-staging */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-production";
+			defaultConfigurationName = "Debug-development";
 		};
 /* End XCConfigurationList section */
 	};
