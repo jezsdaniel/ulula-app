@@ -6,9 +6,11 @@ class DottedIconButton extends StatelessWidget {
   const DottedIconButton({
     super.key,
     required this.icon,
+    required this.onPressed,
   });
 
   final Widget icon;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class DottedIconButton extends StatelessWidget {
       borderType: BorderType.Circle,
       child: InkWell(
         borderRadius: const BorderRadius.all(Radius.circular(50)),
-        onTap: () {},
+        onTap: onPressed,
         child: Container(
           width: 50,
           height: 50,

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:ulula/core/constants/constants.dart';
-import 'package:ulula/features/account_management/presentation/pages/sign_in/sign_in.dart';
+import 'package:ulula/features/account_management/presentation/pages/sign_up/sign_up.dart';
 
-class SignUpHeader extends StatelessWidget {
-  const SignUpHeader({super.key});
+class SignInHeader extends StatelessWidget {
+  const SignInHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +18,12 @@ class SignUpHeader extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(
-              Icons.add,
+              Icons.login_outlined,
               color: AppColors.color5,
             ),
             const SizedBox(width: 5),
             Text(
-              'Regístrate',
+              'Inicia Sesión',
               style: AppTextStyles.bold20.copyWith(
                 color: AppColors.color5,
               ),
@@ -32,20 +32,20 @@ class SignUpHeader extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.push(context, SignInPage.route());
+            Navigator.push(context, SignUpPage.route());
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                '¿Ya tienes cuenta? Inicia Sesión',
+                '¿No tienes cuenta? Crea una',
                 style: AppTextStyles.regular14.copyWith(
                   color: AppColors.color3,
                 ),
               ),
               const SizedBox(width: 5),
               const Icon(
-                Icons.login,
+                Icons.add,
                 color: AppColors.color1,
                 size: 15,
               ),

@@ -7,11 +7,13 @@ class CircleIconButton extends StatelessWidget {
     required this.icon,
     this.backgroundColor = AppColors.color3,
     this.size = 54,
+    required this.onPressed,
   });
 
   final Widget icon;
   final Color backgroundColor;
   final double size;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class CircleIconButton extends StatelessWidget {
       ),
       child: InkWell(
         borderRadius: const BorderRadius.all(Radius.circular(92)),
-        onTap: () {},
+        onTap: onPressed,
         child: Center(
           child: icon,
         ),

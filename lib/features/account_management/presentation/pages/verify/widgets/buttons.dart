@@ -21,8 +21,11 @@ class VerifyButtons extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const CircleIconButton(
-                  icon: Icon(
+                CircleIconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(
                     Icons.close,
                     color: AppColors.color2,
                   ),
