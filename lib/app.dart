@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:ulula/core/theme/theme.dart';
-import 'package:ulula/features/account_management/presentation/pages/welcome.dart';
+import 'package:ulula/features/account_management/presentation/pages/welcome/welcome.dart';
 import 'package:ulula/l10n/l10n.dart';
 
 class App extends StatelessWidget {

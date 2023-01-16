@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'package:ulula/core/constants/assets.dart';
 import 'package:ulula/core/constants/colors.dart';
+import 'package:ulula/features/account_management/presentation/pages/sign_up/sign_up.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -10,6 +12,7 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 0,
         systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.dark,
           statusBarBrightness: Brightness.light,
@@ -35,7 +38,9 @@ class WelcomePage extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/login'),
+                onPressed: () {
+                  Navigator.push(context, SignUpPage.route());
+                },
                 child: const Text('Acceder'),
               ),
             ),
