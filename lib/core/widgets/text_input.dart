@@ -1,3 +1,4 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -19,6 +20,8 @@ class AppTextFormField extends StatefulWidget {
     this.autofocus = false,
     this.obscureText,
     this.textAlign,
+    this.initialValue,
+    this.enabled,
   });
 
   final String? labelText;
@@ -34,6 +37,8 @@ class AppTextFormField extends StatefulWidget {
   final bool autofocus;
   final bool? obscureText;
   final TextAlign? textAlign;
+  final String? initialValue;
+  final bool? enabled;
 
   @override
   State<StatefulWidget> createState() {
@@ -44,6 +49,40 @@ class AppTextFormField extends StatefulWidget {
 class _AppTextFormFieldState extends State<AppTextFormField> {
   bool isError = false;
   String errorString = '';
+
+  Widget getBorder({required Widget child}) {
+    if (widget.enabled == null || widget.enabled!) {
+      return Container(
+        padding: const EdgeInsets.symmetric(
+          vertical: 8,
+          horizontal: 16,
+        ),
+        height: 64,
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(92)),
+          border: Border.all(
+            color: AppColors.color3,
+          ),
+        ),
+        child: child,
+      );
+    } else {
+      return SizedBox(
+        height: 64,
+        child: DottedBorder(
+          dashPattern: const [5, 5],
+          padding: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 16,
+          ),
+          borderType: BorderType.RRect,
+          radius: const Radius.circular(92),
+          color: AppColors.color3,
+          child: child,
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,23 +107,14 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
                 }
               });
             },
-            child: Container(
-              padding: const EdgeInsets.symmetric(
-                vertical: 8,
-                horizontal: 16,
-              ),
-              height: 64,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(92)),
-                border: Border.all(
-                  color: AppColors.color3,
-                ),
-              ),
+            child: getBorder(
               child: Row(
                 children: [
                   if (widget.prefix != null) widget.prefix!,
                   Expanded(
                     child: TextFormField(
+                      initialValue: widget.initialValue,
+                      enabled: widget.enabled,
                       focusNode: widget.focusNode,
                       controller: widget.controller,
                       style: AppTextStyles.regular16.copyWith(

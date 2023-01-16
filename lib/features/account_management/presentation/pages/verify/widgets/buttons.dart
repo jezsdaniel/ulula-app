@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:ulula/core/constants/constants.dart';
 import 'package:ulula/core/widgets/widgets.dart';
-import 'package:ulula/features/account_management/presentation/pages/verify/verify.dart';
+import 'package:ulula/features/account_management/presentation/pages/complete_sign_up/complete_sign_up.dart';
 
 class VerifyButtons extends StatelessWidget {
   const VerifyButtons({super.key});
@@ -35,8 +35,11 @@ class VerifyButtons extends StatelessWidget {
                 ),
                 Expanded(
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.all(8),
+                    ),
                     onPressed: () {
-                      Navigator.push(context, VerifyAccountPage.route());
+                      Navigator.push(context, CompleteSignUpPage.route());
                     },
                     child: const Text('Continuar'),
                   ),

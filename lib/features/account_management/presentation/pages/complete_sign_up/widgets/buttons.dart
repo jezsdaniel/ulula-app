@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:ulula/core/constants/constants.dart';
 import 'package:ulula/core/widgets/widgets.dart';
-import 'package:ulula/features/account_management/presentation/pages/sign_up/sign_up.dart';
 
-class SignInButtons extends StatelessWidget {
-  const SignInButtons({super.key});
+class SignUpCompleteButtons extends StatelessWidget {
+  const SignUpCompleteButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +20,14 @@ class SignInButtons extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                DottedIconButton(
-                  icon: const Icon(
-                    Icons.add,
-                    color: AppColors.color1,
-                  ),
+                CircleIconButton(
                   onPressed: () {
-                    Navigator.push(context, SignUpPage.route());
+                    Navigator.pop(context);
                   },
+                  icon: const Icon(
+                    Icons.close,
+                    color: AppColors.color2,
+                  ),
                 ),
                 const SizedBox(
                   width: 10,
@@ -39,7 +38,7 @@ class SignInButtons extends StatelessWidget {
                       padding: const EdgeInsets.all(8),
                     ),
                     onPressed: () {},
-                    child: const Text('Continuar'),
+                    child: const Text('Guardar'),
                   ),
                 ),
               ],

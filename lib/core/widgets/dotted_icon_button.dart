@@ -7,27 +7,33 @@ class DottedIconButton extends StatelessWidget {
     super.key,
     required this.icon,
     required this.onPressed,
+    this.size = 54,
   });
 
   final Widget icon;
   final VoidCallback onPressed;
+  final double size;
 
   @override
   Widget build(BuildContext context) {
-    return DottedBorder(
-      dashPattern: const [5, 5],
-      color: AppColors.color4,
-      borderType: BorderType.Circle,
-      child: InkWell(
-        borderRadius: const BorderRadius.all(Radius.circular(50)),
-        onTap: onPressed,
-        child: Container(
-          width: 50,
-          height: 50,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(50)),
+    return Container(
+      width: size,
+      height: size,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(
+          Radius.circular(92),
+        ),
+      ),
+      child: DottedBorder(
+        dashPattern: const [5, 5],
+        color: AppColors.color4,
+        borderType: BorderType.Circle,
+        child: InkWell(
+          borderRadius: const BorderRadius.all(Radius.circular(92)),
+          onTap: onPressed,
+          child: SizedBox.expand(
+            child: icon,
           ),
-          child: icon,
         ),
       ),
     );

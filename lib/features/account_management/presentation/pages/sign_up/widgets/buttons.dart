@@ -36,6 +36,9 @@ class SignUpButtons extends StatelessWidget {
                 ),
                 Expanded(
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.all(6),
+                    ),
                     onPressed: () {
                       Navigator.push(context, VerifyAccountPage.route());
                     },
