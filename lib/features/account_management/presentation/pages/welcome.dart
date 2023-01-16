@@ -29,7 +29,7 @@ class WelcomePage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ElevatedButton(
                 onPressed: () => Navigator.pushNamed(context, '/login'),
-                child: const Text('Login'),
+                child: const Text('Acceder'),
               ),
             ),
             const SizedBox(
@@ -56,7 +56,7 @@ class WelcomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     Icon(Icons.electric_bolt),
-                    Text('Register'),
+                    Text('Visitante'),
                     Icon(Icons.navigate_next),
                   ],
                 ),
