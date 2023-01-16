@@ -50,6 +50,7 @@ class SignUpForm extends StatelessWidget {
           SizedBox(height: 10),
           AppTextFormField(
             labelText: 'Contraseña',
+            obscureText: true,
             prefix: Icon(
               Icons.password_outlined,
               color: AppColors.color4,

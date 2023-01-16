@@ -4,8 +4,8 @@ import 'package:ulula/core/constants/constants.dart';
 import 'package:ulula/core/widgets/widgets.dart';
 import 'package:ulula/features/account_management/presentation/pages/verify/verify.dart';
 
-class SignUpButtons extends StatelessWidget {
-  const SignUpButtons({super.key});
+class VerifyButtons extends StatelessWidget {
+  const VerifyButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,10 @@ class SignUpButtons extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const DottedIconButton(
+                const CircleIconButton(
                   icon: Icon(
-                    Icons.add,
-                    color: AppColors.color4,
+                    Icons.close,
+                    color: AppColors.color2,
                   ),
                 ),
                 const SizedBox(

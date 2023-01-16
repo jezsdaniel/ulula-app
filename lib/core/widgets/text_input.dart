@@ -6,7 +6,7 @@ import 'package:ulula/core/constants/constants.dart';
 class AppTextFormField extends StatefulWidget {
   const AppTextFormField({
     super.key,
-    required this.labelText,
+    this.labelText,
     this.prefix,
     this.suffix,
     this.validation,
@@ -17,9 +17,11 @@ class AppTextFormField extends StatefulWidget {
     this.focusNode,
     this.checkOfErrorOnFocusChange = false,
     this.autofocus = false,
+    this.obscureText,
+    this.textAlign,
   });
 
-  final String labelText;
+  final String? labelText;
   final String Function(String)? validation;
   final Widget? prefix;
   final Widget? suffix;
@@ -30,6 +32,8 @@ class AppTextFormField extends StatefulWidget {
   final FocusNode? focusNode;
   final bool checkOfErrorOnFocusChange;
   final bool autofocus;
+  final bool? obscureText;
+  final TextAlign? textAlign;
 
   @override
   State<StatefulWidget> createState() {
@@ -86,25 +90,27 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
                       style: AppTextStyles.regular16.copyWith(
                         color: AppColors.color4,
                       ),
+                      obscureText: widget.obscureText ?? false,
                       autofocus: widget.autofocus,
                       keyboardType: widget.keyboardType,
                       textInputAction: widget.textInputAction,
                       inputFormatters: widget.inputFormatters,
+                      textAlign: widget.textAlign ?? TextAlign.start,
                       validator: (string) {
                         if (widget.validation != null) {
                           if (widget.validation!(widget.controller?.text ?? '')
                               .isNotEmpty) {
                             setState(() {
                               isError = true;
-                              errorString =
-                                  widget.validation!(widget.controller?.text ?? '');
+                              errorString = widget
+                                  .validation!(widget.controller?.text ?? '');
                             });
                             return '';
                           } else {
                             setState(() {
                               isError = false;
-                              errorString =
-                                  widget.validation!(widget.controller?.text ?? '');
+                              errorString = widget
+                                  .validation!(widget.controller?.text ?? '');
                             });
                           }
                         }
@@ -115,8 +121,8 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
                         labelStyle: AppTextStyles.regular16.copyWith(
                           color: AppColors.color3,
                         ),
-                        contentPadding:
-                            const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 2),
                         enabledBorder: InputBorder.none,
                         errorBorder: InputBorder.none,
                         border: InputBorder.none,

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:ulula/core/constants/constants.dart';
 
-class SignUpHeader extends StatelessWidget {
-  const SignUpHeader({super.key});
+class VerifyHeader extends StatelessWidget {
+  const VerifyHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,34 +17,29 @@ class SignUpHeader extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(
-              Icons.add,
+              Icons.celebration_outlined,
               color: AppColors.color5,
             ),
             const SizedBox(width: 5),
             Text(
-              'Regístrate',
+              'Activa tu cuenta',
               style: AppTextStyles.bold20.copyWith(
                 color: AppColors.color5,
               ),
             ),
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              '¿Ya tienes cuenta? Inicia Sesión',
-              style: AppTextStyles.regular14.copyWith(
-                color: AppColors.color3,
-              ),
-            ),
-            const SizedBox(width: 5),
-            const Icon(
-              Icons.login,
-              color: AppColors.color1,
-              size: 15,
-            ),
-          ],
+        Text(
+          'Se envió el código de activación a',
+          style: AppTextStyles.regular14.copyWith(
+            color: AppColors.color3,
+          ),
+        ),
+        Text(
+          'user@gmail.com',
+          style: AppTextStyles.regular14.copyWith(
+            color: AppColors.color4,
+          ),
         ),
       ],
     );
