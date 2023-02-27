@@ -29,16 +29,12 @@ class NetworkHandler {
         endpoint,
         data: body,
       );
-      _logger
-        ..information('<- RESPONSE CODE: ${res.statusCode}')
-        ..information('<- RESPONSE BODY: ${res.data}');
-
       if (res.statusCode == 200) {
         await _sharedP.setAccessToken(res.data!['token'] as String);
       }
       return res;
-    } catch (ex) {
-      _logger.error('<- EXCEPTION: $ex');
+    }
+    catch (ex) {
       rethrow;
     }
   }

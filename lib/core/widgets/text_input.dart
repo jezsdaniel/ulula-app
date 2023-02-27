@@ -24,6 +24,8 @@ class AppTextFormField extends StatefulWidget {
     this.initialValue,
     this.enabled,
     this.errorMessage,
+    this.onChanged,
+    this.onFieldSubmitted,
   });
 
   final String? labelText;
@@ -42,6 +44,8 @@ class AppTextFormField extends StatefulWidget {
   final String? initialValue;
   final bool? enabled;
   final String? errorMessage;
+  final void Function(String)? onChanged;
+  final void Function(String)? onFieldSubmitted;
 
   @override
   State<StatefulWidget> createState() {
@@ -92,6 +96,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         FocusScope(
           child: Focus(
@@ -131,6 +136,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
                       textInputAction: widget.textInputAction,
                       inputFormatters: widget.inputFormatters,
                       textAlign: widget.textAlign ?? TextAlign.start,
+                      onChanged: widget.onChanged,
                       validator: (string) {
                         if (widget.validation != null) {
                           if (widget.validation!(widget.controller?.text ?? '')
@@ -151,6 +157,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
                         }
                         return null;
                       },
+                      onFieldSubmitted: widget.onFieldSubmitted,
                       decoration: InputDecoration(
                         labelText: widget.labelText,
                         labelStyle: AppTextStyles.regular16.copyWith(

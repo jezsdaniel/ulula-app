@@ -23,9 +23,17 @@ class AccountRemoteApiImpl extends AccountRemoteApi {
           res.data!,
         );
       } else {
-        throw ServerException(
-          message: res.data!['message'] as String,
-        );
+        if (res.data!['errors'] != null) {
+          throw ServerException(
+            message: (res.data!['errors'] as List<dynamic>)
+                .map((e) => e.toString())
+                .join(', '),
+          );
+        } else {
+          throw ServerException(
+            message: res.data!['message'] as String,
+          );
+        }
       }
     } catch (e) {
       rethrow;

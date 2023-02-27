@@ -1,12 +1,21 @@
 import 'package:dio/dio.dart';
 
+import 'package:ulula/core/network/dio/logger_interceptor.dart';
 import 'package:ulula/core/utils/utils.dart';
 import 'package:ulula/di/di.dart';
 
 class DioClient {
   DioClient(this._dio, this._logger) {
     _dio
+      ..interceptors.add(LoggingInterceptors(_logger))
       ..options.baseUrl = Injector.apiBaseUrl
+      ..options.followRedirects = false
+      ..options.validateStatus = ((status) {
+        if (status == null) {
+          return false;
+        }
+        return status < 500;
+      })
       ..options.responseType = ResponseType.json;
   }
 
@@ -21,14 +30,6 @@ class DioClient {
     String contentType = 'application/json',
     Map<String, dynamic>? headers,
   }) async {
-    _logger.information('''
-      REQUEST: POST,
-      DATA: $data,
-      URL: $url,
-      QueryParameters: $queryParameters,
-      Content-Type: $contentType,
-      Headers: $headers,
-      ''');
     try {
       final response = await _dio.post<T>(
         url,

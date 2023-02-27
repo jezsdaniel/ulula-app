@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:ulula/core/constants/colors.dart';
 import 'package:ulula/di/di.dart';
-import 'package:ulula/features/account/ui/bloc/auth/auth_bloc.dart';
+import 'package:ulula/features/account/ui/bloc/sign_in/sign_in_bloc.dart';
 import 'package:ulula/features/account/ui/pages/sign_in/widgets/widgets.dart';
 
 class SignInPage extends StatelessWidget {
@@ -20,7 +20,7 @@ class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AuthBloc(
+      create: (context) => SignInBloc(
         Injector.instance!.getDependency(),
       ),
       child: const _SignInView(),

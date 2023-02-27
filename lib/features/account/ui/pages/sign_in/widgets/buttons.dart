@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:ulula/core/constants/constants.dart';
 import 'package:ulula/core/widgets/widgets.dart';
+import 'package:ulula/features/account/ui/bloc/sign_in/sign_in_bloc.dart';
 import 'package:ulula/features/account/ui/pages/sign_up/sign_up.dart';
 
 class SignInButtons extends StatelessWidget {
@@ -38,7 +40,9 @@ class SignInButtons extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.all(8),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<SignInBloc>().add(SignInFormSubmitted());
+                    },
                     child: const Text('Continuar'),
                   ),
                 ),
