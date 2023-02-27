@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:formz/formz.dart';
 
 import 'package:ulula/core/constants/colors.dart';
 import 'package:ulula/di/di.dart';
@@ -43,28 +45,46 @@ class _SignInView extends StatelessWidget {
         ),
       ),
       backgroundColor: AppColors.color2,
-      body: SafeArea(
-        bottom: false,
-        child: CustomScrollView(
-          slivers: [
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: Column(
-                children: const [
-                  Spacer(),
-                  SignInHeader(),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 50,
+      body: Stack(
+        children: [
+          Positioned.fill(
+            child: SafeArea(
+              bottom: false,
+              child: CustomScrollView(
+                slivers: [
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: Column(
+                      children: const [
+                        Spacer(),
+                        SignInHeader(),
+                        SizedBox(
+                          width: double.infinity,
+                          height: 50,
+                        ),
+                        SignInForm(),
+                        Spacer(),
+                        SignInButtons(),
+                      ],
+                    ),
                   ),
-                  SignInForm(),
-                  Spacer(),
-                  SignInButtons(),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+          if (context.select((SignInBloc bloc) => bloc.state.formStatus) ==
+              FormzStatus.submissionInProgress)
+            const Positioned.fill(
+              child: ColoredBox(
+                color: Colors.black38,
+                child: Center(
+                  child: SpinKitDoubleBounce(
+                    color: AppColors.color1,
+                  ),
+                ),
+              ),
+            ),
+        ],
       ),
     );
   }
