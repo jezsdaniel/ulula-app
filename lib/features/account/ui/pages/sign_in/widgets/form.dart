@@ -85,6 +85,7 @@ class _PasswordField extends StatefulWidget {
 
 class _PasswordFieldState extends State<_PasswordField> {
   final _passwordFocusNode = FocusNode();
+  bool _obscureText = true;
 
   @override
   void initState() {
@@ -102,7 +103,7 @@ class _PasswordFieldState extends State<_PasswordField> {
       builder: (context, state) {
         return AppTextFormField(
           labelText: 'Contraseña',
-          obscureText: true,
+          obscureText: _obscureText,
           onChanged: (value) {
             context.read<SignInBloc>().add(
                   SignInPasswordChanged(
@@ -119,9 +120,16 @@ class _PasswordFieldState extends State<_PasswordField> {
             Icons.password_outlined,
             color: AppColors.color4,
           ),
-          suffix: const Icon(
-            Icons.visibility_outlined,
-            color: AppColors.color4,
+          suffix: GestureDetector(
+            onTap: () {
+              setState(() {
+                _obscureText = !_obscureText;
+              });
+            },
+            child: const Icon(
+              Icons.visibility_outlined,
+              color: AppColors.color4,
+            ),
           ),
         );
       },

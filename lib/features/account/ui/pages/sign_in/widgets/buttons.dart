@@ -41,6 +41,7 @@ class SignInButtons extends StatelessWidget {
                       padding: const EdgeInsets.all(8),
                     ),
                     onPressed: () {
+                      FocusScope.of(context).unfocus();
                       context.read<SignInBloc>().add(SignInFormSubmitted());
                     },
                     child: const Text('Continuar'),

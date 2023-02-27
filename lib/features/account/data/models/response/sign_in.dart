@@ -10,7 +10,7 @@ class SignInResponseModel extends Equatable {
 
   factory SignInResponseModel.fromJson(Map<String, dynamic> json) =>
       SignInResponseModel(
-        user: UserProfile.fromJson(json),
+        user: UserProfile.fromJson(json['user'] as Map<String, dynamic>),
         token: json['token'] as String,
       );
 
