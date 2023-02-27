@@ -1,6 +1,7 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'package:dotted_border/dotted_border.dart';
 
 import 'package:ulula/core/constants/constants.dart';
 
@@ -22,6 +23,7 @@ class AppTextFormField extends StatefulWidget {
     this.textAlign,
     this.initialValue,
     this.enabled,
+    this.errorMessage,
   });
 
   final String? labelText;
@@ -39,6 +41,7 @@ class AppTextFormField extends StatefulWidget {
   final TextAlign? textAlign;
   final String? initialValue;
   final bool? enabled;
+  final String? errorMessage;
 
   @override
   State<StatefulWidget> createState() {
@@ -77,7 +80,9 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
           ),
           borderType: BorderType.RRect,
           radius: const Radius.circular(92),
-          color: AppColors.color3,
+          color: (isError || widget.errorMessage != null)
+              ? AppColors.color7
+              : AppColors.color3,
           child: child,
         ),
       );
@@ -91,8 +96,8 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
         FocusScope(
           child: Focus(
             onFocusChange: (focus) {
-              setState(() {
-                if (widget.validation != null) {
+              if (widget.validation != null) {
+                setState(() {
                   if (widget.checkOfErrorOnFocusChange &&
                       widget.validation!(widget.controller?.text ?? '')
                           .isNotEmpty) {
@@ -104,8 +109,8 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
                     errorString =
                         widget.validation!(widget.controller?.text ?? '');
                   }
-                }
-              });
+                });
+              }
             },
             child: getBorder(
               child: Row(
@@ -170,13 +175,13 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
           ),
         ),
         Visibility(
-          visible: isError,
+          visible: widget.errorMessage != null || isError,
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
             child: Text(
-              errorString,
+              widget.errorMessage ?? errorString,
               style: AppTextStyles.regular12.copyWith(
-                color: AppColors.color1,
+                color: AppColors.color7,
               ),
             ),
           ),

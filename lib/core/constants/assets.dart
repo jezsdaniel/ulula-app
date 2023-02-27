@@ -10,4 +10,5 @@ class AppAssets {
   static const telegramIconOutlined = 'assets/icons/telegram-icon-outlined.svg';
   static const twitterIconOutlined = 'assets/icons/twitter-icon-outlined.svg';
   static const youtubeIconOutlined = 'assets/icons/youtube-icon-outlined.svg';
+  static const whatsappIconOutlined = 'assets/icons/whatsapp-icon-outlined.svg';
 }
