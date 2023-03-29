@@ -19,8 +19,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthStatusChanged>(_onAuthStatusChanged);
     on<AuthUpdateUser>(_onAuthUpdateUser);
     on<AuthLogoutRequested>(_onAuthLogoutRequested);
-    _accountStatusSubscription =
-        _accountRepository.status.listen(
+    _accountStatusSubscription = _accountRepository.status.listen(
       (status) => add(
         AuthStatusChanged(
           status: status.authStatus,
@@ -31,8 +30,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   final AccountRepository _accountRepository;
-  late StreamSubscription<AccountStatus>
-      _accountStatusSubscription;
+  late StreamSubscription<AccountStatus> _accountStatusSubscription;
 
   @override
   Future<void> close() {
@@ -74,5 +72,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   void _onAuthLogoutRequested(
     AuthLogoutRequested event,
     Emitter<AuthState> emit,
-  ) {}
+  ) {
+    _accountRepository.logOut();
+  }
 }

@@ -29,4 +29,6 @@ abstract class AccountRepository {
   );
 
   Future<Either<Failure, bool>> validateToken();
+
+  Future<Either<Failure, bool>> logOut();
 }

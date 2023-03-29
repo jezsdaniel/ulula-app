@@ -74,4 +74,15 @@ class AccountRepositoryImpl implements AccountRepository {
     );
     return Left(UnauthorizedFailure());
   }
+
+  @override
+  Future<Either<Failure, bool>> logOut() async {
+    await sharedPreferencesManager.cleanAll();
+    _statusController.add(
+      const AccountStatus(
+        authStatus: AuthStatus.unauthenticated,
+      ),
+    );
+    return Future.value(const Right(true));
+  }
 }
