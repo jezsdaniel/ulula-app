@@ -51,6 +51,8 @@ class AccountRepositoryImpl implements AccountRepository {
         ),
       );
 
+      await sharedPreferencesManager.setAccessToken(res.token);
+
       return Right(res);
     } catch (ex) {
       if (ex is ServerException) {

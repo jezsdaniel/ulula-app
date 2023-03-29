@@ -53,8 +53,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         if (user == UserProfile.empty) {
           return emit(const AuthState.unauthenticated());
         }
-        emit(AuthState.authenticated(user));
-        return;
+        return emit(AuthState.authenticated(user));
       case AuthStatus.unknown:
         return emit(const AuthState.unknown());
     }
