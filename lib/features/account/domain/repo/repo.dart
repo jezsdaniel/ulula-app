@@ -27,4 +27,6 @@ abstract class AccountRepository {
   Future<Either<Failure, SignInResponseModel>> signIn(
     SignInRequestModel request,
   );
+
+  Future<Either<Failure, bool>> validateToken();
 }

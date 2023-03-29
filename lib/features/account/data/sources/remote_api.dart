@@ -36,8 +36,6 @@ class AccountRemoteApiImpl extends AccountRemoteApi {
         }
       }
     } catch (e) {
-      print("ALOHA");
-      print(e);
       rethrow;
     }
   }

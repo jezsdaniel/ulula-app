@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'package:ulula/core/theme/theme.dart';
 import 'package:ulula/di/di.dart';
@@ -39,12 +40,14 @@ class App extends StatelessWidget {
             listener: (context, state) {
               switch (state.status) {
                 case AuthStatus.authenticated:
+                  FlutterNativeSplash.remove();
                   _navigator.pushAndRemoveUntil<void>(
                     MainPage.route(),
                     (route) => false,
                   );
                   break;
                 case AuthStatus.unauthenticated:
+                  FlutterNativeSplash.remove();
                   _navigator.pushAndRemoveUntil<void>(
                     WelcomePage.route(),
                     (route) => false,

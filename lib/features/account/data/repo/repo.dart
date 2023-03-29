@@ -64,4 +64,14 @@ class AccountRepositoryImpl implements AccountRepository {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, bool>> validateToken() async {
+    _statusController.add(
+      const AccountStatus(
+        authStatus: AuthStatus.unauthenticated,
+      ),
+    );
+    return Left(UnauthorizedFailure());
+  }
 }
