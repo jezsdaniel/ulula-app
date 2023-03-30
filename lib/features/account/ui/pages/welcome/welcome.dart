@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:ulula/core/constants/assets.dart';
 import 'package:ulula/core/constants/colors.dart';
 import 'package:ulula/features/account/ui/pages/sign_up/sign_up.dart';
+import 'package:ulula/features/guest/ui/pages/home/home.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -69,7 +70,9 @@ class WelcomePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(92),
                   ),
                 ),
-                onPressed: () => Navigator.pushNamed(context, '/register'),
+                onPressed: () {
+                  Navigator.push(context, GuestHomePage.route());
+                },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
