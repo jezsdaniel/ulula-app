@@ -6,12 +6,14 @@ class CircleIconButton extends StatelessWidget {
     super.key,
     required this.icon,
     this.backgroundColor = AppColors.color3,
+    this.borderColor,
     this.size = 54,
     required this.onPressed,
   });
 
   final Widget icon;
   final Color backgroundColor;
+  final Color? borderColor;
   final double size;
   final VoidCallback onPressed;
 
@@ -23,6 +25,11 @@ class CircleIconButton extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: backgroundColor,
+        border: borderColor != null
+            ? Border.all(
+                color: borderColor!,
+              )
+            : null,
       ),
       child: InkWell(
         borderRadius: const BorderRadius.all(Radius.circular(92)),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:ulula/core/constants/constants.dart';
+import 'package:ulula/features/guest/ui/pages/event/event.dart';
 
 class GuestEventItem extends StatelessWidget {
   const GuestEventItem({super.key});
@@ -80,30 +81,35 @@ class GuestEventItem extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    color: AppColors.color6,
-                  ),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Ver',
-                        style: AppTextStyles.regular16.copyWith(
-                          color: AppColors.color2,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(context, GuestEventDetailsPage.route());
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: AppColors.color6,
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Ver',
+                          style: AppTextStyles.regular16.copyWith(
+                            color: AppColors.color2,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 4),
-                      const Icon(
-                        Icons.keyboard_arrow_right,
-                        color: AppColors.color2,
-                        size: 18,
-                      ),
-                    ],
+                        const SizedBox(width: 4),
+                        const Icon(
+                          Icons.keyboard_arrow_right,
+                          color: AppColors.color2,
+                          size: 18,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
