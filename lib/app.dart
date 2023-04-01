@@ -9,7 +9,7 @@ import 'package:ulula/features/account/domain/entity/enums/enums.dart';
 import 'package:ulula/features/account/ui/bloc/auth/auth_bloc.dart';
 import 'package:ulula/features/account/ui/pages/splash/splash.dart';
 import 'package:ulula/features/account/ui/pages/welcome/welcome.dart';
-import 'package:ulula/features/main/ui/pages/main.dart';
+import 'package:ulula/features/home/ui/pages/home/home.dart';
 import 'package:ulula/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -42,7 +42,7 @@ class App extends StatelessWidget {
                 case AuthStatus.authenticated:
                   FlutterNativeSplash.remove();
                   _navigator.pushAndRemoveUntil<void>(
-                    MainPage.route(),
+                    HomePage.route(),
                     (route) => false,
                   );
                   break;

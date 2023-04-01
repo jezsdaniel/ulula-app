@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sticky_headers/sticky_headers.dart';
 
 import 'package:ulula/core/constants/constants.dart';
-import 'package:ulula/features/main/ui/pages/widgets/widgets.dart';
+import 'package:ulula/features/home/ui/pages/home/widgets/widgets.dart';
 
 class HomeFeed extends StatelessWidget {
   const HomeFeed({super.key});
