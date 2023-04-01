@@ -1,5 +1,5 @@
 //GENERATED BARREL FILE 
+export 'body.dart';
 export 'bottom.dart';
-export 'event_item.dart';
-export 'feed.dart';
+export 'header.dart';
 
